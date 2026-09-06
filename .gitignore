@@ -1,0 +1,25 @@
+# Quantum ESPRESSO scratch, temporary, and large files
+*.wfc*
+*.mix*
+*.igk*
+*.save/
+*.xml
+*.einv
+*.o
+*.out.*
+CRASH
+out/
+tmp/
+*.dat.bak
+
+# Python environment & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+.ipynb_checkpoints/
+
+# OS Metadata
+.DS_Store
+Thumbs.db

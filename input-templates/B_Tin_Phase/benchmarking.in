@@ -1,0 +1,31 @@
+&CONTROL
+    calculation = 'scf',
+    prefix = 'scf_bt_Kpoint-{k}_Ecut-{ecutwfc}',
+    pseudo_dir = './silicon-dft/pseudopotential/', ! path of directory containing .UPF Pseudopotential file
+    outdir = './silicon-dft/data/sample-outputs/B_Tin_Phase/' ! path to the output directory
+/
+&SYSTEM
+    ibrav = 7,
+    celldm(1) = 8.96, ! taken from materials project
+    celldm(3) = 0.561,
+    nat = 2,
+    ntyp = 1,
+    ecutwfc = {ecutwfc},
+    ecutrho = {ecutrho}, ! 8-12 times ecutwfc for USPPs
+    occupations = 'smearing',
+    smearing    = 'mv', ! Marzari-Vanderbilt 'cold' smearing
+    degauss     = 0.02 ! smearing width
+/
+&ELECTRONS
+    conv_thr = 1.0d-6, ! convergence threshold for successive SCL iterations
+    mixing_beta = 0.7 ! mixing factor for successive SCL iterations
+/
+ATOMIC_SPECIES
+ Si  28.0856  Si.pbe-n-rrkjus_psl.1.0.0.UPF ! GGA-PBE USPP taken from Quantum Espresso website
+
+ATOMIC_POSITIONS crystal
+ Si 0.0 0.0 0.0
+ Si 0.0 0.5 0.25
+
+K_POINTS (automatic)
+ {k} {k} {k} 1 1 1

@@ -1,0 +1,3 @@
+## Requirements
+* Python 3.x (`numpy`, `scipy`, `matplotlib`)
+* Quantum ESPRESSO (v6.x or later, for executing DFT calculations)

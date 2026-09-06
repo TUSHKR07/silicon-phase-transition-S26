@@ -1,0 +1,28 @@
+&CONTROL
+        calculation  = 'scf',
+        prefix       = 'scf_cd_Kpoint-{k}_Ecut-{ecutwfc}',
+        pseudo_dir   = './silicon-dft/pseudopotential/', ! path of directory containing .UPF Pseudopotential file
+        outdir       = './silicon-dft/data/sample-outputs/Cubic_Diamond_Phase/', ! path to the output directory
+/
+&SYSTEM
+        ibrav = 2,
+        celldm(1) = 10.26, ! taken from materials project
+        nat = 2,
+        ntyp = 1,
+        ecutwfc = {ecutwfc},
+	ecutrho = {ecutrho} ! 8-12 times ecutwfc for USPPs
+/
+&ELECTRONS
+        conv_thr = 1.0d-6, ! convergence threshold for successive SCL iterations
+	mixing_beta = 0.7 ! mixing factor for successive SCL iterations
+/
+
+ATOMIC_SPECIES
+ Si 28.086 Si.pbe-n-rrkjus_psl.1.0.0.UPF ! GGA-PBE USPP taken from Quantum Espresso website
+
+ATOMIC_POSITIONS (alat)
+ Si 0.0 0.0 0.0
+ Si 0.25 0.25 0.25
+
+K_POINTS (automatic)
+ {k} {k} {k} 0 0 0
